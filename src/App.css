@@ -1,0 +1,99 @@
+       .ribbon {
+            position: absolute;
+            right: 15px;
+            overflow: hidden;
+            width: 75px;
+            height: 75px;
+        }
+
+        .ribbon span {
+            font-size: 13px;
+            line-height: 20px;
+            transform: rotate(45deg);
+            width: 100px;
+            display: block;
+            box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+            position: absolute;
+            top: 19px;
+            right: -21px;
+        }
+        .font{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .bg-img1{
+          background-image: url(http://plarnkhoi.com/wp-content/uploads/2015/04/bg-white-choose.jpg);
+        }
+        .bg-img{
+
+            background-image: url("http://getwallpapers.com/wallpaper/full/0/a/a/286282.jpg");
+        }
+          .bg-img2{
+
+            background-image: url("https://www.highreshdwallpapers.com/wp-content/uploads/2013/02/Rich-Mahoganny-Curtains.png");
+        }
+
+          .jumbotron{
+            background-image: url("");
+            background-size: cover;
+            background-repeat: no-repeat;
+        
+        }
+        
+        .card-title{
+        color:rgb(4, 109, 13);
+        font-style: italic;
+        font-family: Comic Sans MS;
+        }
+        .heading{
+            font-family: 'Times New Roman', Times, serif;
+           
+        
+            font-size: 500%;
+          background-size: cover;
+          background-repeat: no-repeat;
+            text-align: center;
+            color:rgb(152, 230, 7);
+            transition: 2.5s;
+        }
+         #head:hover {
+           transform: scale(1);
+           opacity: 1;
+           background-image:url("https://www.darksky.org/wp-content/uploads/2019/05/DSC8812.jpg");
+        
+           
+          }
+          #dish{
+            transition: 2.5s;
+        
+          }
+          #dish:hover {
+            transform: scale(1.15)
+          }
+          #city {
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+        
+          }
+          #description p {
+            font-family:Comic Sans MS;
+        
+          }
+          #background{
+            opacity: 0.6;
+          }
+          #btn_menu{
+            border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 25px;
+          font-weight: 500;
+          border-radius: 25px;
+          }
+          .hello{
+            color: rgb(5, 88, 26);
+          }
+          .hi{
+            border-radius: 50%;
+          }
