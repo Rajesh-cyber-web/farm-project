@@ -2,7 +2,7 @@ import React from 'react'
 import { ListGroup, ListGroupItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 const Footer = () => {
-    return (<>
+    return (<> <div className="bg-img">
     <div className="container">
     <div>
     <style>
@@ -89,7 +89,7 @@ iPhone is a trademark of Apple Inc., registered in the U.S. and other countries.
             </div>  
         </main>
        </div>
-        </>
+      </div>  </>
  )
     }
     export default Footer

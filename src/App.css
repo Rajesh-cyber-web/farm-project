@@ -25,7 +25,7 @@
         }
         .bg-img{
 
-            background-image: url("http://getwallpapers.com/wallpaper/full/0/a/a/286282.jpg");
+            background-image: url("https://wallpapercave.com/wp/2I03ZvH.jpg");
         }
           .bg-img2{
 
@@ -97,3 +97,41 @@
           .hi{
             border-radius: 50%;
           }
+          .imgsecond:hover {
+            -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+          }
+
+          body {margin:30;height:2000px;}
+
+.icon-bar {
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.a {
+  display: block;
+  text-align: center;
+  padding: 15px;
+  transition: all 0.3s ease;
+  color:rgb(242, 209, 252) ;
+  font-size: 20px;
+}
+
+.a:hover {
+  background-color: #000;
+}
+
+.feedback {
+  background: #048b2d;
+  color: white;
+}
+
+
+
+
+
+

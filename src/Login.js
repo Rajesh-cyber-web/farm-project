@@ -1,77 +1,86 @@
-// import React , {Component} from "react";
-// import fire from "./config/fire";
-// class Login extends Component{
-//     constructor(props){
-//         super(props);
-//         this.login=this.login.bind(this);
-//         this.handleChange=this.handleChange.bind(this);
-//         this.signup=this.signup.bind(this);
-//         this.state={
-//             email : "",
-//             password : ""
-//         }
-//     }
-//     login(e){
-//         e.preventDefault();
-//         fire.auth().signInWithEmailAndPassword(this.state.email,this.state.password).then((u)=>{
-//             console.log(u)
-//         }).catch((err)=>{
-//             console.log(err);
-//         })
-//     }
-//     signup(e){
-//         e.preventDefault();
-//         fire.auth().createUserWithEmailAndPassword(this.state.email,this.state.password).then((u)=>{
-//             console.log(u)
-//         }).catch((err)=>{
-//             console.log(err);
-//         })
-//     }
-//     handleChange(e){
-//         this.setState({
-//             [e.target.name] : e.target.value
-//         })
-//     }
-//     render(){
-//         return(
-//             <div>
-//                 <button type="button" class="btn btn-lg btn-link text-white font-weight-bold float-right" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Log-In / Sign-Up</button>
-//                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-//                                 <div class="modal-dialog" role="document">
-//                                     <div class="modal-content">
-//                                         <div class="modal-header">
-//                                             <h5 class="modal-title font text-dark" id="exampleModalLabel">Farmbox Direct</h5>
-//                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-//                                                 <span aria-hidden="true">&times;</span>
-//                                             </button>
-//                                         </div>
-//                                         <div class="modal-body">
-//                                             <form>
-//                                                 <div class="form-group">
-//                                                     <label for="email" class="col-form-label text-dark float-left">Email Id</label>
-//                                                     <input type="email" class="form-control" id="email" name="email" required placeholder="enter email address" 
-//                                                     value={this.state.email}
-//                                                      onChange={this.handleChange}/>
-//                                                 </div>
-//                                                 <div class="form-group">
-//                                                     <label for="pwd" class="col-form-label text-dark float-left">Password</label>
-//                                                     <input type="password" class="form-control" id="pwd" name="password" required  placeholder="enter password"
-//                                                     value ={this.state.password} 
-//                                                     onChange={this.handleChange}/>
-//                                                 </div>
-//                                             </form>
-//                                         </div>
-//                                         <div class="modal-footer">
-//                                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-//                                             <button onClick={this.login} type="button" data-dismiss="modal" class="btn btn-warning">Login</button>
-//                                             <button onClick={this.signup} type="button" data-dismiss="modal" class="btn btn-warning">SignUp</button>
-//                                         </div>
-//                                     </div>
-//                                 </div>
-//                             </div>
-                            
-//             </div>
-//         )
-//     }
-// }
-// export default Login;
+import React from 'react'
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import InputBase from '@material-ui/core/InputBase';
+import { fade, makeStyles } from '@material-ui/core/styles';
+import MenuIcon from '@material-ui/icons/Menu';
+import SearchIcon from '@material-ui/icons/Search';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  
+  
+  search: {
+    position: 'relative',
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: fade(theme.palette.common.white, 0.15),
+    '&:hover': {
+      backgroundColor: fade(theme.palette.common.white, 0.25),
+    },
+    marginLeft: 0,
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: theme.spacing(1),
+      width: 'auto',
+    },
+  },
+  searchIcon: {
+    padding: theme.spacing(0, 2),
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  inputRoot: {
+    color: 'inherit',
+  },
+  inputInput: {
+    padding: theme.spacing(1, 1, 1, 0),
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      width: '20ch',
+      '&:focus': {
+        width: '35ch',
+      },
+    },
+  },
+}));
+
+export default function SearchAppBar() {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.root}>
+     
+        <Toolbar>
+          <div className="text-danger">
+          <div className={classes.search}>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
+            </div>
+            <InputBase
+              placeholder="Search…"
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </div>
+          </div>
+        </Toolbar>
+      
+    </div>
+  );
+}
+
+

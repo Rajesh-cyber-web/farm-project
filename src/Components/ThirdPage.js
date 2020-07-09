@@ -5,11 +5,10 @@ import { Progress , Alert, Col,InputGroupAddon,InputGroupText,InputGroup,
      Button, Form, FormGroup, Label, Input,CustomInput ,Card,
      CardText, CardBody, CardLink, CardTitle} from 'reactstrap';
 const ThirdPage = (props) => {
-    // const { state: {cart, totalcost,cards} } = useContext(MyContext)
-        const { state: { totalcost, cart ,itemName}} = useContext(MyContext)
+        const { state: { totalcost, cart } ,removeUpdate } = useContext(MyContext)
     return (
-        <>  <div className="">
-    <div className="container">
+        <>  <div className="border container">
+    <div className="container mt-4">
       <Progress multi className="">
         <Progress animated bar color="primary" value="33"><b>Step:1 SELECT YOUR BOX</b></Progress>
         <Progress animated bar color="success" value="33"><b>Step:2 ACCOUNT INFORMATION</b></Progress>
@@ -76,7 +75,7 @@ const ThirdPage = (props) => {
                     <div className="row">
                         <div className="col-12">
                     <button  className="btn btn-link text-success btn-sm">
-                        Description : {itemName}
+                        Description :
                     </button><br/>
                     <button  className="btn btn-link text-success btn-sm">
                         CGST (Rate) : 0.00
@@ -85,13 +84,11 @@ const ThirdPage = (props) => {
                         CGST (Amount) : 0.00
                     </button><br/>
                     <button  className="btn btn-link text-success btn-sm">
-                        SGST (Amount) : 18.00
+                        SGST (Amount) : 0.00
                     </button><br/>
                     <button  className="btn btn-link text-success btn-sm">
-                        Delivery Charges : 10.00
+                        Delivery Charges : 0.00  
                     </button><hr/>
-                    <button  className="btn btn-link text-success btn-sm">18 + 10 + Total<hr/>
-                    </button>
                     </div>
                     <button  className="btn btn-link text-success text-center font-weight-bold container btn-lg">
                         Total :₹{totalcost}
@@ -143,7 +140,7 @@ const ThirdPage = (props) => {
 </div>
 <div className="col-4">
 <div><h2 className="container">Summary</h2><hr /></div>
-{cart.map(({ img,vegtype, Price,itemName,totalcost }) => (<>
+{cart.map(({ img,vegtype, Price,itemName },index) => (<>
 <div>
       <Card>
         <img width="100%" height="100px" src={img} alt="Card image cap" />
@@ -162,6 +159,7 @@ const ThirdPage = (props) => {
         <CardLink className="btn text-danger">SEE MENU</CardLink></div>
         <div className="col-6"> <CardLink className="btn text-danger">(Click to re-select)</CardLink></div>
          </div>
+         <div className="col"><button onClick={() => removeUpdate(index)} className="btn btn-link text-danger btn-lg">x</button></div>
       </Card>
     </div>
     </>

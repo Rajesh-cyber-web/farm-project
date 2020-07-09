@@ -10,11 +10,11 @@ const MainPage = () => {
     return (
         <>
          <div class="bg-img"><br/>
-            {window.scrollTo(0, 0)}  
+           
 <CarouselFun></CarouselFun>
             <br/>
             <div class="container" >
-            <div class="">
+            <div class="text-white">
             <h2>Organic Combo</h2></div><hr/>
               
                 <div class="row">
@@ -51,7 +51,7 @@ const MainPage = () => {
 
                     <div class=" mx-auto d-flex  align-items-center  ">
 
-                        <Link to="/one"><button class="btn btn-danger" >view More</button></Link>
+                        <Link to="/viewmore"><button class="btn btn-danger" >view More</button></Link>
                         {/* onClick={(e) => handleByVegtype () } */}
                     </div>
 
@@ -64,7 +64,7 @@ const MainPage = () => {
             <div class=" container"  >
              
                 <div class="">
-            <h2>Organic Fruit and Vegetables</h2><hr/>
+            <h2 class="text-white">Organic Fruit and Vegetables</h2><hr/>
   </div>
 
                 <div class="row">
@@ -96,7 +96,7 @@ const MainPage = () => {
 
 
                     <div class=" mx-auto d-flex  align-items-center  ">
-                         <Link to="/one"><button class="btn btn-danger">view More</button></Link>
+                         <Link to="/viewmore"><button class="btn btn-danger">view More</button></Link>
                          {/* onClick={(e) => handleByVegtype () } */}
                     </div>
 

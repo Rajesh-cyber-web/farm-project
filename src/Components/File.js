@@ -1,21 +1,23 @@
 
 import React,{useContext} from 'react'
-import { MyContext } from './contextData/MyContext';
+import { MyContext } from '../contextData/MyContext';
 import { Badge} from 'reactstrap';
 function File() {
- const { state: { search,filter },handleInput,onSearch } = useContext(MyContext)
+ const { state: { search,filter },handleInput,removeUpdate, onSearch,handleAddToCart  } = useContext(MyContext)
   return (<><div className="">
     <div className="container mb-4">
-    <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" onChange={handleInput}/>
-      <button className="btn btn-outline-success my-2 my-sm-0"  onClick={onSearch}>Search</button>
+    <input className="form-control" type="text" placeholder="Search products..." aria-label="Search" onChange={handleInput}/>
+     <div class="text-center"> <button className="btn btn-outline-danger my-2 my-sm-0"  onClick={onSearch}>Search</button></div>
  </div>
+ <div class="bg-img">
+ <div class="container">
  <div class="row ">
 {
  
   filter.map((card,i)=>{
     return(
       <div class="row">
-
+<div class="col-4">
     <div class=" cardclass card mt-3 mx-2 my-2 p-3 boder-dark" style={{ width: '20rem' }}>
     <div class="ribbon">
         <span class="text-white container font-weight-bold bg-success">{card.vegtype}</span></div>
@@ -29,10 +31,10 @@ function File() {
     <div class="row">
         <div class="col-xl-6">
             <h5>Price</h5>
-            <p>{card.Price}</p>
+            <p>Rs. {card.Price} / Pack</p>
         </div>
         <div class="col-xl-6">
-    <button class="btn btn-danger">Add to Cart</button>
+    <button class="btn btn-danger"  onClick={() => handleAddToCart(i,card)}>Add to Cart</button>
         </div>
     </div>
     <div class="row"> 
@@ -81,7 +83,7 @@ from what is currently displayed for the following week</div>
 </button>
 </div>
 <div class="modal-body">
-...
+{/* <div className="col mt-5"><button onClick={() => removeUpdate(i)} className="btn btn-danger btn-lg">X</button></div> */}
 </div>
 <div class="modal-footer">
 <div class="col-8">Menu changes each week and contents may vary
@@ -91,12 +93,13 @@ from what is currently displayed for the following week</div>
 </div>
 </div>
 </div></div></div>
-  
   </div>
+  </div>
+  
   )
   })
 }
-</div>
-</div> </>)
+</div></div>
+</div></div> </>)
 }
 export default File

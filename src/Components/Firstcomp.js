@@ -5,7 +5,7 @@ const Firstcomp = (props) => {
     <div className=" bg-img">
     <div className="container">
         <container>
-            <h1 class="container text-center h font-weight-bold">How It Works</h1> <hr></hr>
+            <h1 class="container text-center text-white h font-weight-bold">How It Works</h1> <hr></hr>
             <style>{`.h{font-family:'Times New Roman'}`}</style>
         
         <CardDeck>

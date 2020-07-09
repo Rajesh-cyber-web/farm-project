@@ -22,7 +22,7 @@ const UseFarmHooks = () => {
         price: ""
     }
     const reducer = (state, action) => {
-        let { type, payload } = action
+        let { type, payload} = action
 const {search,totalCards} = state
  switch (type) {
             case 'cartItem':{
@@ -52,6 +52,15 @@ const {target:{value}}=payload
 
                 }
             }
+            case 'DELETE_ITEMS': {
+                
+                console.log(payload)
+                return {
+                    ...state,
+                    cart: [...payload]
+                }
+            }
+            
            
             case 'onSearch': {
                  let value=search.toLowerCase()
@@ -78,7 +87,7 @@ const {target:{value}}=payload
     }
 
     const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
-    let { cards,filtercards,veg, totalCards, cart,totalcost } = state;
+    let { cards,filtercards,veg, totalCards, cart,totalcost ,totalamount} = state;
     useEffect(() => {
 
         fetch('https://jsonblob.com/api/776605ee-b48b-11ea-a2fd-c7307f25ae0a').then(response => response.json().then(json => {
@@ -92,10 +101,17 @@ const {target:{value}}=payload
             })
         }))
     }, [])
+    const removeUpdate = (index) => {
+        console.log(index)
+        cart.splice(index,1)
+        dispatch({ type: 'DELETE_ITEMS', payload:  cart })
+    }
     useEffect(()=>{
-        if(cart.length>0){totalcost=cart.reduce((b,a)=>b+(Number(a.Price)*Number(a.qnt)),0)}
+        if(cart.length>0){totalcost=cart.reduce((b,a)=>b+(Number(a.Price)*Number(a.qnt)),0)
+            
+        }
 
-console.log(totalcost)
+console.log(totalamount)
 dispatch({type:"CARD_DETAILS",payload:{totalcost:totalcost}})
     },[cart])
     
@@ -118,7 +134,7 @@ const onSearch = () => {
 
 
 
-const handleAddToCart = (i,card) => {
+const handleAddToCart = (index,card) => {
     let x=[];
     x.push(card)
   cart=[...cart, ...x]
@@ -132,7 +148,8 @@ const handleAddToCart = (i,card) => {
      handleByType,
      handleInput,
      onSearch,
-     handleAddToCart
+     handleAddToCart,
+    removeUpdate
     }
 }
 export default UseFarmHooks;
